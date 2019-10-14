@@ -1,0 +1,110 @@
+{
+  "name": "hello-webpack-multiple-page",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "chenc",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=deveploment webpack-dev-server --config config/webpack.dev.conf.js",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.conf.js",
+    "build:dev": "npm run clean && cross-env NODE_ENV=production DEV=true webpack --config config/webpack.prod.conf.js",
+    "build:test": "npm run clean && cross-env NODE_ENV=production TEST=true webpack --config config/webpack.prod.conf.js",
+    "build:uat": "npm run clean && cross-env NODE_ENV=production UAT=true webpack --config config/webpack.prod.conf.js",
+    "analyzer": "cross-env ANALYZER=true webpack --config config/webpack.prod.conf.js",
+    "clean": "rimraf ./dist",
+    "prebuild": "npm run clean",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --fix --ext .js",
+    "prettier": "prettier --write src/js/*.ts"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/**/*.{js,ts}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.{js,ts}": "npm run lint-staged:js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "dependencies": {
+    "core-js": "3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1"
+  },
+  "browserslist": [
+    "cover 99.5% in CN"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.5.5",
+    "@types/compression-webpack-plugin": "^2.0.1",
+    "@types/friendly-errors-webpack-plugin": "^0.1.2",
+    "@types/html-webpack-plugin": "^3.2.1",
+    "@types/mini-css-extract-plugin": "^0.8.0",
+    "@types/react": "^16.8.24",
+    "@types/react-dom": "^16.8.5",
+    "@types/react-hot-loader": "^4.1.0",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/terser-webpack-plugin": "^1.2.1",
+    "@types/webpack": "^4.32.1",
+    "@types/webpack-bundle-analyzer": "^2.13.2",
+    "@types/webpack-merge": "^4.1.5",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "chalk": "^2.4.2",
+    "compression-webpack-plugin": "^3.0.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^3.1.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "file-loader": "^4.1.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "glob": "^7.1.4",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^4.0.0-beta.8",
+    "husky": "^3.0.2",
+    "ip": "^1.1.5",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^9.2.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "postcss-adaptive": "^0.5.0",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
+    "prettier": "^1.18.2",
+    "progress-bar-webpack-plugin": "^1.12.1",
+    "react-hot-loader": "^4.12.10",
+    "rimraf": "^2.6.3",
+    "style-loader": "^0.23.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-recommended": "^2.2.0",
+    "terser-webpack-plugin": "^1.4.1",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.39.1",
+    "webpack-bundle-analyzer": "^3.4.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1"
+  }
+}
