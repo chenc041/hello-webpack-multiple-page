@@ -17,7 +17,7 @@ for (const file of fileNames) {
       },
       chunks: [`${file}`],
       filename: `${file}.html`,
-      template: path.resolve(__dirname, `../src/${file}.html`),
+      template: path.resolve(__dirname, `../src/${file}.ejs`),
     })
   );
 }
@@ -31,13 +31,6 @@ const config = {
   },
   module: {
     rules: [
-      {
-        test: /\.(html)$/,
-        use: {
-          loader: 'html-loader',
-        },
-        exclude: /node_modules/,
-      },
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
         use: [
