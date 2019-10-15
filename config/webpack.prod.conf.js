@@ -11,16 +11,16 @@ const pkg = require('../package.json');
 const { ANALYZER, DEV, TEST, UAT } = process.env;
 
 // @ts-ignore
-let publicPath = `https://i.gymbo-online.com/static/${pkg.name}/`;
+let publicPath = `https://chenc.site/static/${pkg.name}/`;
 if (DEV === 'true') {
   // @ts-ignore
-  publicPath = `https://dev1-app.gymbo-online.com/static/${pkg.name}/`;
+  publicPath = `https://dev.chenc.site/static/${pkg.name}/`;
 } else if (TEST === 'true') {
   // @ts-ignore
-  publicPath = `https://dev1-app.gymbo-online.com/static/${pkg.name}/`;
+  publicPath = `https://test.chenc.site/static/${pkg.name}/`;
 } else if (UAT === 'true') {
   // @ts-ignore
-  publicPath = `https://dev1-app.gymbo-online.com/static/${pkg.name}/`;
+  publicPath = `https://uat.chenc.site/static/${pkg.name}/`;
 }
 
 const definePlugin = {
@@ -28,6 +28,8 @@ const definePlugin = {
   'process.env.DEV': JSON.stringify('true'),
   'process.env.TEST': JSON.stringify('true'),
   'process.env.UAT': JSON.stringify('true'),
+  'process.env.PROD': JSON.stringify('true'),
+  'process.env.LOCAL': JSON.stringify('true'),
   'process.env.PUBLICPATH': JSON.stringify(publicPath),
 };
 

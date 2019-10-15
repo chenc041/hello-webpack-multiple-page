@@ -4,8 +4,8 @@
   "license": "MIT",
   "author": "chenc",
   "scripts": {
-    "dev": "cross-env NODE_ENV=deveploment webpack-dev-server --config config/webpack.dev.conf.js",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.conf.js",
+    "dev": "cross-env NODE_ENV=deveploment LOCAL=true webpack-dev-server --config config/webpack.dev.conf.js",
+    "build": "cross-env NODE_ENV=production PROD=true webpack --config config/webpack.prod.conf.js",
     "build:dev": "npm run clean && cross-env NODE_ENV=production DEV=true webpack --config config/webpack.prod.conf.js",
     "build:test": "npm run clean && cross-env NODE_ENV=production TEST=true webpack --config config/webpack.prod.conf.js",
     "build:uat": "npm run clean && cross-env NODE_ENV=production UAT=true webpack --config config/webpack.prod.conf.js",

@@ -17,6 +17,7 @@ for (const file of fileNames) {
       },
       chunks: [`${file}`],
       filename: `${file}.html`,
+      isProdEnv: process.env.PROD || process.env.UAT,
       template: path.resolve(__dirname, `../src/${file}.ejs`),
     })
   );

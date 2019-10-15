@@ -13,5 +13,11 @@
   <%= htmlWebpackPlugin.options.isProdEnv %>
   <p>hell world</p>
 </body>
+<% if (!htmlWebpackPlugin.options.isProdEnv) { %>
+  <script src='https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js'></script>
+  <script>
+    new VConsole();
+  </script>
+<%} %>
 
 </html>
