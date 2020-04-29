@@ -33,6 +33,10 @@ const config = {
   module: {
     rules: [
       {
+        test: /.(html|ejs)$/,
+        loader: 'html-loader',
+      },
+      {
         test: /\.(png|jpg|jpeg|gif)$/i,
         use: [
           {
